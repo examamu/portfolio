@@ -1,0 +1,112 @@
+#weekTabs {
+  display: flex;
+  list-style : none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.weekly_toggle{
+  position: relative;
+  box-sizing: border-box;
+}
+
+.date_toggle{
+  padding-top: 24px;
+  background: #3097D1;
+  display: block;
+}
+#ozTabs { /* タブのコンテナ */
+    width: 100%;
+    list-style : none;
+    padding : 0;
+    margin-bottom: 0;
+    overflow : hidden;
+    display: flex;
+    }
+  .ozTab { /* タブの基本設定 */
+    width: 100%;
+    padding : 5px 10px 3px;
+    border-width : 1px;
+    border-style : solid;
+    border-color : #CCC #CCC #FFF #CCC;
+    border-bottom: none;
+    border-radius : 4px 4px 0 0;
+    flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+    color: #fff;
+    }
+  .ozTab:hover { /* マウスオーバー時の指定 */
+    background-color : #EEE;
+    cursor : pointer;
+    }
+  .ozTab + .ozTab { margin-left: 10px; }
+  .tabBody { /* コンテンツのコンテナ */
+    background: #ffffff;
+    z-index : 0;
+    list-style : none;
+  }
+
+.weekly_array { display: none; }
+
+  .tabContent {
+    display: none;
+    margin: 0 30px;
+  }
+
+  .tab_date{
+    background: #CCC;
+    color: #636b6f;
+  }
+
+  .tabContent tbody, .tabContent thead{
+    margin: 0 auto;
+  }
+
+  .tabContent tbody tr, .tabContent thead tr{
+    width: 100%;
+  }
+
+  .tabContent tbody tr td, .tabContent tbody tr th{
+    padding: 8px;
+    line-height: 1.6;
+    border-bottom: 1px solid #dddddd;
+  }
+
+.tabContent tbody tr, .tabContent thead th{
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+  .active_week {
+    background: #3097D1;
+    display : block;
+    position : relative;
+    color: #fff;
+    z-index : 1;
+  }
+
+  .active { /* カレント判定 */
+    background: #ffffff;
+    display : block;
+    position : relative;
+    z-index : 1;
+    color: #636b6f;
+  }
+
+  .table_time{
+    width: 18%;
+  }
+
+  .table_customer_name{
+    width: 25%;
+  }
+
+  .table_service_type{
+    width: 32%;
+  }
+
+  .table_staff_name{
+    width: 25%;
+  }
