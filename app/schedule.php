@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class schedule extends Model
+class Schedule extends Model
 {   
     protected $table = 'schedules';
 
