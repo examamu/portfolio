@@ -28,8 +28,8 @@ class HomeController extends Controller
         $login_user_data = Auth::user();
         //認証user_idを利用しログインしているstaff情報取得
         $user_data = \App\Staff::where('user_id', $login_user_data->id)->first();
-        $finish_schedules = Schedule::finish_schedules($user_data->facility_id); 
-        $staff_id = Staff::staff_data($user_data->id);
+        $finish_schedules = \App\Schedule::finish_schedules($user_data->facility_id); 
+        $staff_id = \App\Staff::staff_data($user_data->id);
         $admin = $user_data->admin;
 
             DB::transaction(function(){
