@@ -17,9 +17,6 @@ class CreateStaffTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('facility_id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
             $table->integer('admin');
             $table->timestamps();
         });
