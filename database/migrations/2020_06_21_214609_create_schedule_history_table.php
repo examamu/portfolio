@@ -22,7 +22,7 @@ class CreateScheduleHistoryTable extends Migration
             $table->integer('service_type_id');
             $table->date('date');
             $table->time('start_time');
-            $table->string('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

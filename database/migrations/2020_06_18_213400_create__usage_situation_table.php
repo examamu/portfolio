@@ -17,8 +17,7 @@ class CreateUsageSituationTable extends Migration
             $table->increments('id');
             $table->integer('customer_id');
             $table->integer('facility_id');
-            $table->integer('date_of_use');
-
+            $table->string('date_of_use');
             $table->timestamps();
         });
     }

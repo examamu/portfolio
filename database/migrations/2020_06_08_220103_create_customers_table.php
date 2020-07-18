@@ -17,7 +17,7 @@ class CreateCustomersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('insurer_number');
-            $table->string('nursing_care_level');
+            $table->integer('nursing_care_level');
             $table->integer('status');
             $table->timestamps();
         });

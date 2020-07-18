@@ -21,7 +21,7 @@ class CreateSchedulesTable extends Migration
             $table->integer('service_type_id');
             $table->date('date');
             $table->dateTime('start_time');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

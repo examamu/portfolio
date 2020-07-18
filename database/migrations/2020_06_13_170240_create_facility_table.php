@@ -17,6 +17,8 @@ class CreateFacilityTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('facility_type');
+            $table->time('opening_hours');
+            $table->time('closing_hours');
             $table->string('holiday');
             $table->timestamps();
         });
