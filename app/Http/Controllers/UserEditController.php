@@ -14,7 +14,6 @@ class UserEditController extends Controller
 {
 
     public static function index(){
-        $err_msg = array();
         $user_data = Auth::user();
         $user_id = $user_data->id;
         $staff_data = Staff::where('user_id',$user_id)->first();
