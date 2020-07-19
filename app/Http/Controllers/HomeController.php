@@ -26,6 +26,8 @@ class HomeController extends Controller
     {   
         //認証user_idを取得
         $login_user_data = Auth::user();
+        $get_image = DB::select('select image from images where name = logo');
+        $logo = 'data:image/png;base64,'.$get_image;
         //認証user_idを利用しログインしているstaff情報取得
         $user_data = \App\Staff::where('user_id', $login_user_data->id)->first();
         $finish_schedules = \App\Schedule::finish_schedules($user_data->facility_id); 
@@ -57,6 +59,7 @@ class HomeController extends Controller
             });//transaction
             
             return view('home',[
+                'logo' => $logo,
                 'admin' => $admin,
                 'schedules' => Schedule::get_today_schedules($user_data->facility_id),
                 'next_schedule' => Schedule::next_schedule($staff_id),

@@ -35,7 +35,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="/storage/visitplan.png">
+                        <img src="{{ $logo }}">
                     </a>
                 </div>
 
