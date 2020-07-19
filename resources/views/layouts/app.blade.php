@@ -1,5 +1,5 @@
 <?php
-    $get_image = DB::select('select image from images where name = logo');
+    $get_image = DB::select('select image from images where id = 1');
 ?>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
