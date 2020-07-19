@@ -47,7 +47,9 @@
         <!--時間の表示-->
     @foreach( $times as $time )
                         <input type = "hidden" name = "time{{ $i }}{{ $loop->iteration-1 }}" value = "{{ $time }}">
+        @if(isset($get_weekly_schedules[$weekly_array[$i]][$time]['schedule_id']) === TRUE)
                         <input type = "hidden" name = "schedule_id{{ $i }}{{ $loop->iteration-1 }}" value ="{{ $get_weekly_schedules[$weekly_array[$i]][$time]['schedule_id'] }}">
+        @endif
                         <tr>
                             <th class = "table_time" scope="row">{{ $time }}</th>
                             <td class = "table_customer_name">
