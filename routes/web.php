@@ -20,7 +20,7 @@ Route::get('/admin', 'AdminController@index');
 
 Route::post('/admin', 'AdminController@create');
 
-Route::get('/user', 'UserEditController@index');
+Route::get('/user', 'UserEditController@index')->middleware('auth');
 
 Route::post('/user', 'UserEditController@update');
 

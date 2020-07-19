@@ -1,6 +1,15 @@
 ## 概要
 訪問介護スケジュール管理サービス
 
+## URL
+http://masashi-portfolio.herokuapp.com/login
+
+テスト用アカウント
+testuser
+
+テスト用パスワード
+password
+
 ## 使用技術
 <ul>
     <li>HTML5</li>
@@ -8,8 +17,10 @@
     <li>Bootstrap 4</li>
     <li>PHP 7.1</li>
     <li>Laravel 5.5</li>
+    <li>PostgresSQL</li>
     <li>バージョン管理：Git</li>
     <li>仮想環境構築：Docker/Laradock</li>
+    <li>本番環境：Heroku</li>
 </ul>
 
 ※その他PCスキル
@@ -30,5 +41,3 @@
 <ul>
     <li>管理者アカウントにてスケジュールを追加する機能</li>
  </ul>
-
-## 使用している技術一覧
