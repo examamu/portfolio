@@ -1,3 +1,6 @@
+<?php
+    $get_image = DB::select('select image from images where name = logo');
+?>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -35,7 +38,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ $logo }}">
+                        <img src="{{ $get_image }}">
                     </a>
                 </div>
 
