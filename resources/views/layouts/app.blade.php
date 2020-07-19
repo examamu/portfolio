@@ -38,7 +38,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="data:image/png;base64,{{ $get_image[0] }}">
+                        <img src="data:image/png;base64,<? echo $get_image[0] ?>">
                     </a>
                 </div>
 
