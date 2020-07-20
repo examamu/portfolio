@@ -23,7 +23,7 @@ class AdminController extends Controller
     public function index()
     {   
         $login_user_data = Auth::user();
-        $user_facility_id = Staff::staff_data($login_user_data)['facility_id'];
+        $user_facility_id = Staff::staff_data($login_user_data);
 
         $value_array = [
             'admin' => Staff::staff_data($login_user_data)['admin'],
