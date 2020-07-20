@@ -86,7 +86,8 @@ class Schedule extends Model
 
     public static function search_schedule(){
         $login_user_data = Auth::user();
-        $facility_id = Staff::staff_data($login_user_data)->facility_id;
+        $user_data = \App\Staff::where('user_id', $login_user_data->id)->first();
+        $facility_id = Staff::staff_data($user_data)->facility_id;
         $weekly_array = Calendar::weekly_calendar();
         $times = Calendar::times($facility_id);
         //1週間のループ
