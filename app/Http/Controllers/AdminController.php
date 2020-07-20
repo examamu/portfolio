@@ -23,7 +23,9 @@ class AdminController extends Controller
     public function index()
     {   
         $login_user_data = Auth::user();
-        $user_facility_id = Staff::staff_data($login_user_data)['facility_id'];
+        //認証user_idを利用しログインしているstaff情報取得
+        $user_data = \App\Staff::where('user_id', $login_user_data->id)->first();
+        $user_facility_id = Staff::staff_data($user_data)['facility_id'];
 
         $value_array = [
             'admin' => Staff::staff_data($login_user_data)['admin'],
