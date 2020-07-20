@@ -25,7 +25,7 @@ class Staff extends Model
 
     public static function staff_data($login_user_data){
         //認証user_idを利用しログインしているstaff情報取得
-        $staff_data = self::with('user')->where('user_id', $login_user_data['id'])->first();
+        $staff_data = self::where('user_id', $login_user_data['id'])->first();
 
         return $staff_data;
     }
