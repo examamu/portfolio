@@ -28,7 +28,7 @@ class AdminController extends Controller
         $user_facility_id = Staff::staff_data($user_data)['facility_id'];
 
         $value_array = [
-            'admin' => Staff::staff_data($login_user_data)['admin'],
+            'admin' => Staff::staff_data($user_data)['admin'],
             'get_weekly_schedules' => Schedule::search_schedule(),
             'customers' => Customer::customers($user_facility_id),
             'active_customers' => Customer::active_customer($user_facility_id),
