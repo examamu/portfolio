@@ -68,7 +68,8 @@ class Schedule extends Model
 
     private static function get_schedule_data($date,$hour){
         $login_user_data = Auth::user();
-        $facility_id = Staff::staff_data($login_user_data)->facility_id;
+        $user_data = \App\Staff::where('user_id', $login_user_data->id)->first();
+        $facility_id = Staff::staff_data($user_data)->facility_id;
         $schedule_data = \App\Schedule::where('facility_id', $facility_id)->where('date',$date)->where('start_time',$hour)->first();
         if(isset($schedule_data) === TRUE){
             $service_type_data = \App\ServiceType::find($schedule_data['service_type_id']);
