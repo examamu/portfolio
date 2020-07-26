@@ -15,8 +15,8 @@ password
     <li>HTML5</li>
     <li>CSS3</li>
     <li>Bootstrap 4</li>
-    <li>PHP 7.1</li>
-    <li>Laravel 5.5</li>
+    <li>PHP 7.3.11</li>
+    <li>Laravel 5.5.49</li>
     <li>PostgresSQL</li>
     <li>バージョン管理：Git</li>
     <li>仮想環境構築：Docker/Laradock</li>

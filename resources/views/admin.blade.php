@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <main class = "container ">
-    <div class = "col-md-8 col-md-offset-2">
+    <div class = "">
     <h1>訪問スケジュール管理</h1>
         <h2>週間スケジュール</h2>
         <form method = "POST">
@@ -34,23 +34,28 @@
             <div class = "tabBody">
 
 @for( $i = 0; $i < 7; $i++)<!--1週間ぶんのテーブル出力-->
-                <table id="c{{ $i }}" class = "col-md-12 tabContent @if($i === 0)active @endif">
-                    <thead>
-                        <tr>
-                            <th id="p{{ $i }}" class = "tbody weekly_array @if($i === 0)active @endif">{{ $weekly_array[$i] }}</th>
-                            <th>利用者</th>
-                            <th>利用種別</th>
-                            <th>ヘルパー</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div id="c{{ $i }}" class = "col-md-12 tabContent @if($i === 0)active @endif">
+
+                    <div class="thead">
+                            <h2 id="p{{ $i }}" class = "tbody weekly_array @if($i === 0)active @endif">{{ $weekly_array[$i] }}</h2>
+                    </div>
+
+
+                    <div class = "tbody">
         <!--時間の表示-->
     @foreach( $times as $time )
                         <input type = "hidden" name = "time{{ $i }}{{ $loop->iteration-1 }}" value = "{{ $time }}">
                         <input type = "hidden" name = "schedule_id{{ $i }}{{ $loop->iteration-1 }}" value ="{{ $get_weekly_schedules[$weekly_array[$i]][$time]['schedule_id'] }}">
-                        <tr>
-                            <th class = "table_time" scope="row">{{ $time }}</th>
-                            <td class = "table_customer_name">
+                        <div class = "form_wrapper">
+                            <div class = "table_time" scope="row">
+                                {{ $time }}
+                                <div class = "triangular">▶︎</div>
+                            </div>
+
+
+
+                            <div class = "table_select table_customer_name">
+                                <div>利用者</div>
                                 <select name = "post_schedule_customer_id{{ $i }}{{ $loop->iteration-1 }}">
         @forelse( $customers as $customer )
                 <!--利用者一覧-->
@@ -67,9 +72,13 @@
                                     <option value = "no_customer">no customer</option>     
         @endforelse
                                 </select>
-                            </td>
+                            </div>
                             
-                            <td class = "table_service_type">
+
+
+
+                            <div class = "table_select table_service_type">
+                                <div>利用種別</div>
                                 <select name = "post_schedule_service_type{{ $i }}{{ $loop->iteration-1 }}">
         @forelse( $serviceTypes as $serviceType )
             @if($loop->first)
@@ -85,8 +94,12 @@
                                     <option value = "no_service">施設の提供サービスが選択されていません</option> 
         @endforelse    
                                 </select>
-                            </td>
-                            <td class = "table_staff_name">
+                            </div>
+
+
+
+                            <div class = "table_select table_staff_name">
+                                <div>ヘルパー</div>
                                 <select name = "post_schedule_staff_id{{ $i }}{{ $loop->iteration-1 }}">
         @forelse( $staffs as $staff )
             @if($loop->first)
@@ -102,11 +115,14 @@
                                     <option value = "no_staff">no user</option>           
         @endforelse
                                 </select>
-                            </td>
-                        </tr>
+                            </div>
+
+
+
+                        </div>
     @endforeach
-                    </tbody>
-                </table>
+                    </div>
+                </div>
 @endfor
             </div>
             <input type = "submit" name = "weekly_schedule" value = "予定を確定させる" class = "btn-primary btn-block">
