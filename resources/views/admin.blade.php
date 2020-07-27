@@ -46,15 +46,17 @@
     @foreach( $times as $time )
                         <input type = "hidden" name = "time{{ $i }}{{ $loop->iteration-1 }}" value = "{{ $time }}">
                         <input type = "hidden" name = "schedule_id{{ $i }}{{ $loop->iteration-1 }}" value ="{{ $get_weekly_schedules[$weekly_array[$i]][$time]['schedule_id'] }}">
-                        <div class = "form_wrapper">
-                            <div class = "table_time" scope="row">
-                                {{ $time }}
-                                <div class = "triangular">▶︎</div>
-                            </div>
+
+                        <a class = "table_time collapsed"  data-toggle="collapse" href="#collapse{{ $i }}{{ $loop->iteration-1 }}" aria-expanded="false" aria-controls="form_button{{ $i }}{{ $loop->iteration-1 }}">
+                            {{ $time }}
+                            <div class = "triangular">▶︎</div>
+                        </a>
+
+                        <div id="collapse{{ $i }}{{ $loop->iteration-1 }}" class = "form_wrapper collapse" role="tabpanel">
 
 
 
-                            <div class = "table_select table_customer_name">
+                            <div class = "card card-body table_select table_customer_name">
                                 <div>利用者</div>
                                 <select name = "post_schedule_customer_id{{ $i }}{{ $loop->iteration-1 }}">
         @forelse( $customers as $customer )
@@ -63,7 +65,7 @@
                                     <option value = "no_customer"></option>
                 @endif
                 <!-- もし取得できていれば-->
-                @if( $get_weekly_schedules[$weekly_array[$i]][$time]['customer_data']['id'] === $customer->customer->id)
+                @if( $get_weekly_schedules[$weekly_array[$i]][$time]['customer_data']['id'] === $customer->customer->id )
                                     <option value="{{ $customer->customer->id }}" selected>{{ $customer->customer->name }}</option>
                 @else
                                     <option value="{{ $customer->customer->id }}">{{ $customer->customer->name }}</option>
@@ -127,35 +129,32 @@
             </div>
             <input type = "submit" name = "weekly_schedule" value = "予定を確定させる" class = "btn-primary btn-block">
         </form>
-        <a href = "#">月間スケジュールはこちらから</a>
+        <!--<a href = "#">月間スケジュールはこちらから</a>-->
 
 
 
-        <h1>施設情報管理</h1>
+        <h1>施設情報</h1>
         <form method = "POST">
-            <table class = "table">
-                <thead>
-                    <tr>
-                        <th>施設名</th>
-                        <th>提供サービス</th>
-                        <th>サービス提供時間</th>
-                        <th>定休日</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type = "text" value = "{{ $facility_data->name }}"></td>
-                        <td><input type = "text" value = "訪問介護"></td>
-                        <td>{{ $facility_data->opening_hours }}から{{ $facility_data->closing_hours }}まで</td>
-                        <td>日</td>
-                    </tr>
-                </tbody>
-            </table>
-            <input type = "submit" name = "weekly_schedule" value = "施設情報を変更する" class = "btn-primary btn-block">
+            <div class = "facility">
+                
+                            <h3>施設名</h3>
+                            <p>{{ $facility_data->name }}</p>
+
+                            <h3>提供サービス</h3>
+                            <p>訪問介護</p>
+
+                            <h3>サービス提供時間</h3>
+                            <p>{{ $facility_data->opening_hours }}から{{ $facility_data->closing_hours }}まで</p>
+
+                            <h3>定休日</h3>           
+                            <p>日</p>
+
+                <!--<input type = "submit" name = "weekly_schedule" value = "施設情報を変更する" class = "btn-primary btn-block">-->
+            </div>
         </form>
 
 
-        <h1>スタッフ管理</h1>
+        <h1>スタッフ情報</h1>
         <table class = "table">
             <thead>
                 <th>スタッフ名</th>

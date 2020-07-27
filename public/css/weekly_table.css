@@ -67,6 +67,7 @@ select{
     z-index : 0;
     list-style : none;
     background: #3097D1;
+    padding-bottom: 8px;
   }
 
 .weekly_array {
@@ -130,6 +131,7 @@ select{
   }
 
   .table_time{
+    display: block;
     width: 100%;
     font-size: 16px;
     border: 1px solid #cccccc;
@@ -146,8 +148,7 @@ select{
   }
   
   .form_wrapper{
-    margin: 0 0 40px;
-    padding-bottom: 40px;
+    padding: 40px 0;
     background: #F5F8FA;
   }
 
@@ -158,3 +159,19 @@ select{
   .table_select{
     margin: 16px 8px;
   }
+
+  .btn-block{
+    margin-top: 16px;
+    height: 44px;
+    padding: 8px 0;
+    border: none;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  }
+
+  .facility{
+    background: #ffffff;
+    border: 8px solid #3097D1;
+  }
+
