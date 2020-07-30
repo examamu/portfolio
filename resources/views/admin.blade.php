@@ -49,16 +49,22 @@
 
                         <a class = "table_time collapsed"  data-toggle="collapse" href="#collapse{{ $i }}{{ $loop->iteration-1 }}" aria-expanded="false" aria-controls="form_button{{ $i }}{{ $loop->iteration-1 }}">
                             {{ $time }}
-                            <div class = "triangular">▶︎</div>
+                            
                         </a>
 
                         <div id="collapse{{ $i }}{{ $loop->iteration-1 }}" class = "form_wrapper collapse" role="tabpanel">
 
-
+                       
 
                             <div class = "card card-body table_select table_customer_name">
                                 <div>利用者</div>
+        <!-- 変更できないように -->
+        @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('His'))
+                                <select name = "post_schedule_customer_id{{ $i }}{{ $loop->iteration-1 }}" disabled>
+        @else
                                 <select name = "post_schedule_customer_id{{ $i }}{{ $loop->iteration-1 }}">
+        @endif
+
         @forelse( $customers as $customer )
                 <!--利用者一覧-->
                 @if($loop->first)              
@@ -81,7 +87,12 @@
 
                             <div class = "table_select table_service_type">
                                 <div>利用種別</div>
+        @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('His'))
+                                <select name = "post_schedule_service_type{{ $i }}{{ $loop->iteration-1 }}" disabled>
+        @else
                                 <select name = "post_schedule_service_type{{ $i }}{{ $loop->iteration-1 }}">
+        @endif
+
         @forelse( $serviceTypes as $serviceType )
             @if($loop->first)
                                     <option value = "no_service"></option> 
@@ -102,7 +113,13 @@
 
                             <div class = "table_select table_staff_name">
                                 <div>ヘルパー</div>
+
+        @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('His'))
+                                <select name = "post_schedule_staff_id{{ $i }}{{ $loop->iteration-1 }}" disabled>
+        @else
                                 <select name = "post_schedule_staff_id{{ $i }}{{ $loop->iteration-1 }}">
+        @endif
+
         @forelse( $staffs as $staff )
             @if($loop->first)
                                     <option value = "no_staff"></option>
@@ -127,7 +144,7 @@
                 </div>
 @endfor
             </div>
-            <input type = "submit" name = "weekly_schedule" value = "予定を確定させる" class = "btn-primary btn-block">
+            <input type = "submit" name = "weekly_schedule" value = "予定を確定させる" class = "btn-primary btn-block" id = "schedule_submit">
         </form>
         <!--<a href = "#">月間スケジュールはこちらから</a>-->
 

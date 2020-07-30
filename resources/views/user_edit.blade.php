@@ -42,7 +42,7 @@
                         <td>
                             <label>
                                 <p>施設名：{{ $facility_name }} </p>
-                                <input type = "text" name = "update_facility"></p>
+                                <input type = "text" name = "update_facility" placeholder = "施設IDを入力してください"></p>
                             </label>
                         </td>
                     </tr>

@@ -1,3 +1,7 @@
+form{
+  display: block;
+}
+
 h1{
   text-align: center;
   margin-bottom: 24px;
@@ -15,9 +19,6 @@ select{
   padding: 4px 0;
 }
 
-.container {
-  overflow: hidden!important;
-}
 
 #weekTabs {
   display: flex;
@@ -42,7 +43,7 @@ select{
     list-style : none;
     padding : 0;
     margin-bottom: 0;
-    overflow : hidden;
+    /* overflow : hidden; */
     display: flex;
     }
   .ozTab { /* タブの基本設定 */
@@ -138,14 +139,18 @@ select{
     background: #ffffff;
     text-align: center;
     padding: 8px 0;
-    position:sticky;
-    top:0;
   }
 
-  .triangular{
-    float:right;
+  .table_time:after {
+    content: "▶︎";
+    float: right;
     margin-right: 8px;
   }
+/*aria-expanded="true"はコンテンツが開いている状態のときに動的に記述される要素です。*/
+.table_time[aria-expanded="true"]:after {
+  content: "▼";
+  color: #3c8dbc;
+}
   
   .form_wrapper{
     padding: 40px 0;
@@ -170,6 +175,13 @@ select{
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   }
 
+  #schedule_submit{
+    display: block;
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0;
+    z-index: 10;
+  }
   .facility{
     background: #ffffff;
     border: 8px solid #3097D1;
