@@ -63,14 +63,16 @@ select{
     background-color : #EEE;
     cursor : pointer;
     }
-  .ozTab + .ozTab { margin-left: 10px; }
+  .ozTab + .ozTab { margin-left: 5px; }
   .tabBody { /* コンテンツのコンテナ */
     z-index : 0;
     list-style : none;
     background: #3097D1;
     padding-bottom: 8px;
   }
-
+.active_week{
+  border: none;
+}
 .weekly_array {
   display: none;
   margin: 0 8px;
@@ -185,7 +187,10 @@ select{
   }
   .facility{
     background: #ffffff;
-    border: 8px solid #3097D1;
+    /* border: 8px solid #3097D1; */
     padding-left: 8px;
   }
 
+  .alert-danger{
+    list-style: none;
+  }

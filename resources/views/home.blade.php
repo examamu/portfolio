@@ -92,7 +92,7 @@
 
         </div>
     
-        <nav class = "col-md-8 col-md-offset-2">
+        <!-- <nav class = "col-md-8 col-md-offset-2">
             <form>
                 <div class = "form-group">
                     <input type = "submit" name = "" value = "自分の予定を確認する" class = "btn-block">
@@ -103,7 +103,7 @@
                     <input type = "submit" name = "" value = "他の職員の予定を確認する" class = "btn-block">
                 </div>
             </form>
-        </nav>
+        </nav> -->
     </div>
 </main>
 
