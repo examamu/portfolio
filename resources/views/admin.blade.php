@@ -182,9 +182,9 @@
                 <td>testuser</td>
                 <td>管理者</td>
                 <td>
-                    <form method = "POST">
+                    <!-- <form method = "POST">
                         <input type = "submit" name = "staff_edit" value = "情報を変更する">
-                    </form>
+                    </form> -->
                 </td>
             </tbody>
         </table>
@@ -196,26 +196,26 @@
                     <th>利用者名</th>
                     <th>要介護度</th>
                     <th>利用曜日</th>
-                    <th>利用休止</th>
-                    <th>利用者情報変更</th>
+                    <!-- <th>利用休止</th>
+                    <th>利用者情報変更</th> -->
                 </tr>
             </thead>
             <tbody>
 @forelse( $customers as $customer)
                 <tr>
                     <td>{{ $customer->customer->name }}</td>
-                    <td>{{ $customer->customer->care_type }}{{ $customer->customer->care_level }}</td>
+                    <td>{{ $customer->customer->care_type }}{{ $customer->customer->nursing_care_level }}</td>
                     <td>{{ $customer->date_of_use }}</td>
-                    <td>
+                    <!-- <td>
                         <form method = "POST">
                             <input type = "submit" name = "customer_suspension_update" value = "利用→休止">
                         </form>
-                    </td>
-                    <td>
+                    </td> -->
+                    <!-- <td>
                         <form method = "POST">
                             <input type = "submit" name = "customer_data_update" value = "情報を変更する">
                         </form>
-                    </td>
+                    </td> -->
                 </tr>
 @empty
 <tr>

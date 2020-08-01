@@ -59,7 +59,7 @@ class Customer extends Model
             $customer->date_of_use = implode(',', $int_array);
 
             //利用者の介護度を表示
-            if($customer->customer->care_type === 1){
+            if($customer->customer->insurer_number === 1){
                 $customer->customer->care_type = '要介護';
             }else{
                 $customer->customer->care_type = '要支援';

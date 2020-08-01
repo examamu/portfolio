@@ -48,7 +48,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type = "submit" name = "update_user_data" value = "変更内容を保存する">
+                            <input type = "submit" name = "update_user_data" value = "変更内容を保存する" class ="btn-primary btn-block">
                         </td>
                     </tr>
             </table>
