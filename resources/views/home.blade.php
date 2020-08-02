@@ -21,7 +21,7 @@
                 <p class="panel-heading">本日次の予定</p>
                 <section class="panel-body">
 @isset($next_schedule->start_time)
-                    <p>{{ $next_schedule->cut_seconds($next_schedule->start_time) }}</p>
+                    <p>{{ $next_schedule->start_time }}</p>
                     <h1>次は{{ $next_schedule->customer->name }}さん宅です。</h1>
                     <p>{{ $next_schedule->description }}</p>
 @else
@@ -44,7 +44,7 @@
                     <tbody>
 @forelse($schedules as $schedule)
                         <tr>
-                            <td>{{ $schedule->cut_seconds($schedule->start_time) }}</td>
+                            <td>{{ $schedule->start_time }}</td>
                             <td>{{ $schedule->customer->name }}さん</td>
                             <td>{{ $schedule->description }}</td>
                             <td>
