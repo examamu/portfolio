@@ -15,6 +15,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'staff']], function(){
     Route::get('/', 'HomeController@index');
 });
+    Route::post('/', 'HomeController@create');
 
 Route::get('/admin', 'AdminController@index');
 

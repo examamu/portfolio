@@ -15,9 +15,11 @@
     <link href="{{ asset('css/weekly_table.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     
     <!--JavaScript-->
     <script src="{{ asset('/js/table.js') }}"></script>
+    <script src="{{ asset('/js/modal_window.js') }}"></script>
 </head>
 <body>
     <div id="app">
