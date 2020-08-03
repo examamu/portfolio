@@ -55,6 +55,15 @@ class Schedule_history extends Model
         $update->save();
     }
 
+    public function update_schedule_history_desc($schedule_data, $post_description)
+    {
+        $schedule_history_id = \App\Schedule_history::where('schedule_id',$schedule_data['schedule_id'])->first()['id'];
+        $update = $this::find($schedule_history_id);
+        $update->description = $post_description;
+
+        $update->save();
+    }
+
     public function insert_schedule_history($schedule_data)
     {
         $this->schedule_id = $schedule_data['schedule_id'];

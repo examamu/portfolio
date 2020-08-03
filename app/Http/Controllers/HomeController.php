@@ -65,4 +65,29 @@ class HomeController extends Controller
                 'today_finish_schedules' => Schedule_history::today_schedule_histories($user_data->facility_id),
             ]);
     }
+
+
+
+    public function create(Request $request)
+    {
+        $post_description_id = $request->input('post_description_id');
+        $post_description = $request->input('post_description');
+
+        $login_user_data = Auth::user();
+        $schedule_history_model = new Schedule_history;
+        $user_data = \App\Staff::where('user_id', $login_user_data->id)->first();
+        $schedule_histories = Schedule_history::today_schedule_histories($user_data->facility_id);
+
+        //スケジュールヒストリー一覧からpostされたidを当て込んで１件取得
+        $schedule_data = $schedule_histories[$post_description_id];
+
+        try{
+            $schedule_history_model->update_schedule_history_desc($schedule_data, $post_description);
+        }catch(\Exception $e){
+            $err_msg[] = '過去のスケジュールデータを更新できませんでした';
+        }
+        
+
+        return $this->index();
+    }
 }

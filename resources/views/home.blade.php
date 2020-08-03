@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <main class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -73,14 +72,12 @@
                     <tbody>
 @forelse( $today_finish_schedules as $schedule)
                         <tr>
-                            <td>{{ $schedule->start_time }}</td>
-                            <td>{{ $schedule->customer->name }}さん</td>
+                            <td id = "today_history_start_time">{{ $schedule->start_time }}</td>
+                            <td id = "today_history_customer_name">{{ $schedule->customer->name }}さん</td>
                             <td>
-                                <form method = "POST">
-                                    <input type = "submit" name = "" value = "伝達事項を記入する">
-                                </form>
+                                <button type="button" name = "description{{ $loop->iteration }}" id = "description{{ $loop->iteration }}" class = "btn">伝達事項を記入する</button>
                             </td>
-                        </tr>
+                        </tr>                   
 @empty
                         <tr>
                             <td>本日終了した予定はありません</td>
@@ -88,6 +85,14 @@
 @endforelse
                     </tbody>
                 </table>
+                <section id = "modal_window" class = "modal_window">
+                    <form method = "POST" class = "modal-content">
+                    {{ csrf_field() }}
+                        <textarea name = "post_description" placeholder = "伝達事項を記入してください"></textarea>
+                        <input type = "hidden" name = "post_description_id" value = "" id= "post_description">
+                        <input class="btn btn-primary" type="submit" value = "送信する">
+                    </form>
+                </section>  
             </article>
 
         </div>
@@ -108,3 +113,7 @@
 </main>
 
 @endsection
+
+<script>
+    var num = '<?php echo count($today_finish_schedules); ?>';
+</script>
