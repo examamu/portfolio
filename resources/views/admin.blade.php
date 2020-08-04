@@ -9,14 +9,15 @@
             <section class="panel-body">
                     <div class="weekly_toggle">
                         <ul id="weekTabs">
-                            <li class="ozTab tab_date active_week">今週</li>
-                            <li class="ozTab tab_date">来週</li>
-                            <li class="ozTab tab_date">再来週</li>
+                            <li id="w0" data-num="0" class="ozTab tab_date active_week">今週</li>
+                            <li id="w1" data-num="1" class="ozTab tab_date">来週</li>
+                            <li id="w2" data-num="2" class="ozTab tab_date">再来週</li>
                         </ul>
                     </div>
 
 <!-- エラー表示 -->
 
+    
 <!-- エラー表示 -->
 
 
