@@ -36,6 +36,8 @@ class AdminController extends Controller
             'serviceTypes' => \App\ServiceType::All(),
             'week' => config('const.WEEK'),
             'weekly_array' => Calendar::weekly_calendar(),
+            'next_week' => Calendar::next_week(),
+            'week_after_next' => Calendar::week_after_next(),
             'times' => Calendar::times($user_facility_id),
             'facility_data' => Facility::facility_data($user_facility_id),
             'count_date' => count(Calendar::times($user_facility_id)),

@@ -93,7 +93,7 @@ class Schedule extends Model
         $weekly_array = Calendar::weekly_calendar();
         $times = Calendar::times($facility_id);
         //1週間のループ
-        for ($i = 0; $i <= 6; $i++)
+        for ($i = 0; $i < 21; $i++)
         {
             //日付の取得
             $date = $weekly_array[$i];

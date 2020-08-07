@@ -35,7 +35,7 @@
 
                 <div class = "tabBody">
 
-@for( $i = 0; $i < 7; $i++)<!--1週間ぶんのテーブル出力-->
+@for( $i = 0; $i < 21; $i++)<!--3週間ぶんのテーブル出力-->
                     <div id="c{{ $i }}" class = "col-md-12 tabContent @if($i === 0)active @endif">
 
                         <div class="thead">

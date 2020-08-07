@@ -16,7 +16,7 @@ class Calendar extends Model
         $d = date('d') - $w;
 
         //週始まり起算で日付7日間取得
-        for($i = $d; $i < $d+7; $i++){
+        for($i = $d; $i < $d+21; $i++){
             //取得した日付が7日以下の場合
             if($i <= 0){
                 $weekly_array[] = date('Y-m-d', mktime(0, 0, 0, $m, $i, $y ));
@@ -45,6 +45,89 @@ class Calendar extends Model
         return $weekly_array;
     }
 
+    public static function next_week()
+    {
+        $y = date('Y');
+        $m = date('m');
+        $w = date('w');//日が0として土が6の数字をふる
+        $t = date('t');
+
+        //週始まりの日付を取得
+        $d = date('d') - $w;
+
+        //週始まり起算で日付7日間取得
+        for($i = $d+7; $i < $d+14; $i++){
+            //取得した日付が7日以下の場合
+            if($i <= 0){
+                $weekly_array[] = date('Y-m-d', mktime(0, 0, 0, $m, $i, $y ));
+
+            //取得した日付が7日を超過するの場合
+            }elseif(checkdate( $m, $i, $y ) === FALSE){
+                //12月なら一年足して 月を1月追加
+                if($m === 12){
+                    $y++;
+                    $m = 1;
+                }
+                //日付を頭へ戻す
+                $reset_day = $i - $t;
+
+                //月末の日付より$iが大きく、頭に戻す数字が１の場合　月を1ふやす
+                if($i > date('t') && $reset_day === 1){
+                    $m++;
+                }
+                // $reset_day
+                $weekly_array[] = $y.'-'.$m.'-'. sprintf('%02d', $reset_day);
+
+            }else{
+                $weekly_array[] = $y.'-'.$m.'-'.sprintf('%02d', $i);
+            }
+        } 
+        return $weekly_array;
+    }
+
+    public static function week_after_next()
+    {
+        $y = date('Y');
+        $m = date('m');
+        $w = date('w');//日が0として土が6の数字をふる
+        $t = date('t');
+
+        //週始まりの日付を取得
+        $d = date('d') - $w;
+
+        //週始まり起算で日付7日間取得
+        for($i = $d+14; $i < $d+21; $i++){
+            //取得した日付が7日以下の場合
+            if($i <= 0){
+                $weekly_array[] = date('Y-m-d', mktime(0, 0, 0, $m, $i, $y ));
+
+            //取得した日付が7日を超過するの場合
+            }elseif(checkdate( $m, $i, $y ) === FALSE){
+                //12月なら一年足して 月を1月追加
+                if($m === 12){
+                    $y++;
+                    $m = 1;
+                }
+                //日付を頭へ戻す
+                $reset_day = $i - $t;
+
+                //月末の日付より$iが大きく、頭に戻す数字が１の場合　月を1ふやす
+                if($i > date('t') && $reset_day === 1){
+                    $m++;
+                }
+                // $reset_day
+                $weekly_array[] = $y.'-'.$m.'-'. sprintf('%02d', $reset_day);
+
+            }else{
+                $weekly_array[] = $y.'-'.$m.'-'.sprintf('%02d', $i);
+            }
+        } 
+        return $weekly_array;
+    }
+
+
+
+    
     public static function times($facility_id)
     {   
         $facility_model = new Facility;
