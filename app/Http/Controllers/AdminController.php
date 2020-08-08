@@ -36,8 +36,6 @@ class AdminController extends Controller
             'serviceTypes' => \App\ServiceType::All(),
             'week' => config('const.WEEK'),
             'weekly_array' => Calendar::weekly_calendar(),
-            'next_week' => Calendar::next_week(),
-            'week_after_next' => Calendar::week_after_next(),
             'times' => Calendar::times($user_facility_id),
             'facility_data' => Facility::facility_data($user_facility_id),
             'count_date' => count(Calendar::times($user_facility_id)),
@@ -61,8 +59,9 @@ class AdminController extends Controller
         $count_date = count($times);
         $err_msg = array();
 
-
-        for($i = 0; $i < 7; $i++){
+        //blade上でのループの再現
+        for($i = 0; $i < 21; $i++){
+            //時間分ループ
             for($j = 0; $j < $count_date; $j++){
 
                 //insertされた利用者名がなければ

@@ -148,7 +148,6 @@
                 <input type = "submit" name = "weekly_schedule" value = "予定を確定させる" class = "btn-primary btn-block" id = "schedule_submit">
             </section>
         </form>
-            <!--<a href = "#">月間スケジュールはこちらから</a>-->
 
 
 

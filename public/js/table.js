@@ -65,7 +65,6 @@ function clickSwitch() {
               }
               var number = parseInt(weekNum)*7+parseInt(num);
             }
-            console.log(number);//8
             if (isTab == number) return;
             isTab = number;
             setStateTabs(number);
