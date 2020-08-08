@@ -60,7 +60,7 @@ select{
     color: #fff;
     }
   .ozTab:hover { /* マウスオーバー時の指定 */
-    background-color : #EEE;
+    opacity: 0.7;
     cursor : pointer;
     }
   .ozTab + .ozTab { margin-left: 5px; }
@@ -73,6 +73,11 @@ select{
 .active_week{
   border: none;
 }
+
+.active_week:hover{
+  opacity: 1;
+}
+
 .weekly_array {
   display: none;
   margin: 0 8px;
@@ -123,6 +128,10 @@ select{
     color: #636b6f;
     border: 1px solid #ffffff;
     border-bottom: none;
+  }
+
+  #ozTabs .active:hover{
+    opacity: 1;
   }
 
   .tabBody .active { /* カレント判定 */

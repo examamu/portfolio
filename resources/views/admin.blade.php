@@ -9,14 +9,15 @@
             <section class="panel-body">
                     <div class="weekly_toggle">
                         <ul id="weekTabs">
-                            <li class="ozTab tab_date active_week">今週</li>
-                            <li class="ozTab tab_date">来週</li>
-                            <li class="ozTab tab_date">再来週</li>
+                            <li id="w0" data-num="0" class="ozTab tab_date active_week">今週</li>
+                            <li id="w1" data-num="1" class="ozTab tab_date">来週</li>
+                            <li id="w2" data-num="2" class="ozTab tab_date">再来週</li>
                         </ul>
                     </div>
 
 <!-- エラー表示 -->
 
+    
 <!-- エラー表示 -->
 
 
@@ -34,7 +35,7 @@
 
                 <div class = "tabBody">
 
-@for( $i = 0; $i < 7; $i++)<!--1週間ぶんのテーブル出力-->
+@for( $i = 0; $i < 21; $i++)<!--3週間ぶんのテーブル出力-->
                     <div id="c{{ $i }}" class = "col-md-12 tabContent @if($i === 0)active @endif">
 
                         <div class="thead">
@@ -147,7 +148,6 @@
                 <input type = "submit" name = "weekly_schedule" value = "予定を確定させる" class = "btn-primary btn-block" id = "schedule_submit">
             </section>
         </form>
-            <!--<a href = "#">月間スケジュールはこちらから</a>-->
 
 
 

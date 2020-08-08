@@ -59,8 +59,9 @@ class AdminController extends Controller
         $count_date = count($times);
         $err_msg = array();
 
-
-        for($i = 0; $i < 7; $i++){
+        //blade上でのループの再現
+        for($i = 0; $i < 21; $i++){
+            //時間分ループ
             for($j = 0; $j < $count_date; $j++){
 
                 //insertされた利用者名がなければ

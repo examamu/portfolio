@@ -16,7 +16,7 @@ class Calendar extends Model
         $d = date('d') - $w;
 
         //週始まり起算で日付7日間取得
-        for($i = $d; $i < $d+7; $i++){
+        for($i = $d; $i < $d+21; $i++){
             //取得した日付が7日以下の場合
             if($i <= 0){
                 $weekly_array[] = date('Y-m-d', mktime(0, 0, 0, $m, $i, $y ));
@@ -44,7 +44,7 @@ class Calendar extends Model
         } 
         return $weekly_array;
     }
-
+    
     public static function times($facility_id)
     {   
         $facility_model = new Facility;
