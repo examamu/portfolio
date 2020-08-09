@@ -53,8 +53,6 @@ class AdminController extends Controller
         //認証user_idを利用しログインしているstaff情報取得
         $user_data = \App\Staff::where('user_id', $login_user_data->id)->first();
         $user_facility_id = Staff::staff_data($user_data)->facility_id;
-        $schedule_model = new Schedule;
-        $schedule_history_model = new Schedule_history;
         $times = Calendar::times($user_facility_id);
         $count_date = count($times);
         $err_msg = array();
@@ -63,35 +61,38 @@ class AdminController extends Controller
         for($i = 0; $i < 21; $i++){
             //時間分ループ
             for($j = 0; $j < $count_date; $j++){
-
+            $schedule_model = new Schedule;
+            $schedule_history_model = new Schedule_history;
                 //insertされた利用者名がなければ
-                if($request->input('post_schedule_customer_id'.$i.$j) === 'no_customer' ){
+                if($request->input('post_schedule_customer_id'.$i."0".$j) === 'no_customer' ){
                     continue;
+                    
                 }
                 //insertされたサービスタイプがなければ
-                if($request->input('post_schedule_service_type'.$i.$j) === 'no_service' ){
+                if($request->input('post_schedule_service_type'.$i."0".$j) === 'no_service' ){
                     continue;
                 }
                 //insertされたスタッフ名がなければ
-                if($request->input('post_schedule_staff_id'.$i.$j) === 'no_staff' ){
+                if($request->input('post_schedule_staff_id'.$i."0".$j) === 'no_staff' ){
                     continue;
                 }
 
-                $post_schedule_id = $request->input('schedule_id'.$i.$j);
+
+
+                $post_schedule_id = $request->input('schedule_id'.$i."0".$j);
 
                 $weekly_array = Calendar::weekly_calendar();
 
                 //利用時間
-                $time = $request->input('time'.$i.$j).':00';
-
+                $time = $request->input('time'.$i."0".$j).':00';
                 //利用者名が送られてくるので利用者IDへ置換
-                $customer_id = $request->input('post_schedule_customer_id'.$i.$j);
-
+                $customer_id = $request->input('post_schedule_customer_id'.$i."0".$j);
+                
                 //利用種別
-                $service_type_id = $request->input('post_schedule_service_type'.$i.$j);
+                $service_type_id = $request->input('post_schedule_service_type'.$i."0".$j);
 
                 //スタッフ名が送られてくるのでスタッフ情報を取得
-                $staff_id = $request->input('post_schedule_staff_id'.$i.$j);
+                $staff_id = $request->input('post_schedule_staff_id'.$i."0".$j);
                 $staff_data = \App\Staff::where('user_id', $staff_id)->first();
 
                 //施設情報取得

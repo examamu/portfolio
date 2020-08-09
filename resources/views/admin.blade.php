@@ -5,6 +5,8 @@
     <h1>訪問スケジュール管理</h1>
         <form method = "POST" class = "panel panel-default">
             <h2 class = "panel-heading">週間スケジュール</h2>
+<!-- エラー表示 -->    
+<!-- エラー表示 -->
     {{ csrf_field() }}
             <section class="panel-body">
                     <div class="weekly_toggle">
@@ -14,13 +16,6 @@
                             <li id="w2" data-num="2" class="ozTab tab_date">再来週</li>
                         </ul>
                     </div>
-
-<!-- エラー表示 -->
-
-    
-<!-- エラー表示 -->
-
-
                 <div class="date_toggle" data-toggle="buttons">
                     <ul id="ozTabs">
 <!--日〜土を表示-->
@@ -46,24 +41,24 @@
                         <div class = "tbody">
         <!--時間の表示-->
     @foreach( $times as $time )
-                            <input type = "hidden" name = "time{{ $i }}{{ $loop->iteration-1 }}" value = "{{ $time }}">
-                            <input type = "hidden" name = "schedule_id{{ $i }}{{ $loop->iteration-1 }}" value ="{{ $get_weekly_schedules[$weekly_array[$i]][$time]['schedule_id'] }}">
+                            <input type = "hidden" name = "time{{ $i }}0{{ $loop->iteration-1 }}" value = "{{ $time }}">
+                            <input type = "hidden" name = "schedule_id{{ $i }}0{{ $loop->iteration-1 }}" value ="{{ $get_weekly_schedules[$weekly_array[$i]][$time]['schedule_id'] }}">
 
-                            <a class = "table_time collapsed"  data-toggle="collapse" href="#collapse{{ $i }}{{ $loop->iteration-1 }}" aria-expanded="false" aria-controls="form_button{{ $i }}{{ $loop->iteration-1 }}">
+                            <a class = "table_time collapsed"  data-toggle="collapse" href="#collapse{{ $i }}0{{ $loop->iteration-1 }}" aria-expanded="false" aria-controls="form_button{{ $i }}0{{ $loop->iteration-1 }}">
                                 {{ $time }}
                             </a>
 
-                            <div id="collapse{{ $i }}{{ $loop->iteration-1 }}" class = "form_wrapper collapse" role="tabpanel">
+                            <div id="collapse{{ $i }}0{{ $loop->iteration-1 }}" class = "form_wrapper collapse" role="tabpanel">
 
                         
 
                                 <div class = "card card-body table_select table_customer_name">
                                     <div>利用者</div>
             <!-- 変更できないように -->
-            @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('His'))
-                                    <select name = "post_schedule_customer_id{{ $i }}{{ $loop->iteration-1 }}" disabled>
+            @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('H:i:s'))
+                                    <select name = "post_schedule_customer_id{{ $i }}0{{ $loop->iteration-1 }}" disabled>
             @else
-                                    <select name = "post_schedule_customer_id{{ $i }}{{ $loop->iteration-1 }}">
+                                    <select name = "post_schedule_customer_id{{ $i }}0{{ $loop->iteration-1 }}">
             @endif
 
             @forelse( $customers as $customer )
@@ -76,7 +71,7 @@
                                         <option value="{{ $customer->customer->id }}" selected>{{ $customer->customer->name }}</option>
                     @else
                                         <option value="{{ $customer->customer->id }}">{{ $customer->customer->name }}</option>
-                    @endisset
+                    @endif
             @empty
                                         <option value = "no_customer">no customer</option>     
             @endforelse
@@ -88,10 +83,10 @@
 
                                 <div class = "table_select table_service_type">
                                     <div>利用種別</div>
-            @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('His'))
-                                    <select name = "post_schedule_service_type{{ $i }}{{ $loop->iteration-1 }}" disabled>
+            @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('H:i:s'))
+                                    <select name = "post_schedule_service_type{{ $i }}0{{ $loop->iteration-1 }}" disabled>
             @else
-                                    <select name = "post_schedule_service_type{{ $i }}{{ $loop->iteration-1 }}">
+                                    <select name = "post_schedule_service_type{{ $i }}0{{ $loop->iteration-1 }}">
             @endif
 
             @forelse( $serviceTypes as $serviceType )
@@ -115,10 +110,10 @@
                                 <div class = "table_select table_staff_name">
                                     <div>ヘルパー</div>
 
-            @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('His'))
-                                    <select name = "post_schedule_staff_id{{ $i }}{{ $loop->iteration-1 }}" disabled>
+            @if( $weekly_array[$i] <= date('Y-m-d') && $time < date('H:i:s'))
+                                    <select name = "post_schedule_staff_id{{ $i }}0{{ $loop->iteration-1 }}" disabled>
             @else
-                                    <select name = "post_schedule_staff_id{{ $i }}{{ $loop->iteration-1 }}">
+                                    <select name = "post_schedule_staff_id{{ $i }}0{{ $loop->iteration-1 }}">
             @endif
 
             @forelse( $staffs as $staff )
